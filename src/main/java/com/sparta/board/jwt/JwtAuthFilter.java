@@ -23,6 +23,7 @@ public class JwtAuthFilter extends OncePerRequestFilter {
     private final JwtUtil jwtUtil;
 
 
+    //jwt 인증
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         // request 에 담긴 토큰을 가져온다.
@@ -38,7 +39,7 @@ public class JwtAuthFilter extends OncePerRequestFilter {
         // 유효한 토큰이라면, 토큰으로부터 사용자 정보를 가져온다.
         Claims info = jwtUtil.getUserInfoFromToken(token);
         try {
-            setAuthentication(info.getSubject());   // 사용자 정보로 인증 객체 만들기
+            setAuthentication(info.getSubject());   // 사용자 정보로 인증 객체 만들기.
         } catch (UsernameNotFoundException e) {
             request.setAttribute("exception", ErrorType.NOT_FOUND_USER);
         }

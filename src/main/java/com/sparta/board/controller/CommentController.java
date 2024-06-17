@@ -18,7 +18,7 @@ public class CommentController {
     private final CommentService commentService;
 
     // 댓글 작성
-    @PostMapping("/comment/{id}")   // 여기서 ID는 게시글의 id
+    @PostMapping("/comment/{id}")   //@PathVariable을 통해서 uri에 {id}로 매칭된 id를 받을 수 있다.
     public ApiResponseDto<CommentResponseDto> createComment(@PathVariable Long id, @RequestBody CommentRequestDto requestDto, @AuthenticationPrincipal UserDetailsImpl userDetails) {
         return commentService.createComment(id, requestDto, userDetails.getUser());
     }

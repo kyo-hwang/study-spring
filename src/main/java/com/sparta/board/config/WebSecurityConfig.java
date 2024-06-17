@@ -38,6 +38,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.authorizeRequests()
                 .antMatchers("/api/user/signup").permitAll() // sign-up API는 인증 없이 접근 가능
+                .antMatchers("/api/user/login").permitAll()
                 .antMatchers(HttpMethod.GET, "/api/posts").permitAll()
                 .antMatchers(HttpMethod.GET, "/api/post/{id}").permitAll()
                 .anyRequest().authenticated()
@@ -46,7 +47,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .addFilterBefore(new JwtAuthFilter(jwtUtil), UsernamePasswordAuthenticationFilter.class);
 
-        http.formLogin().permitAll();
+        http.formLogin().permitAll(); //form login 비활성화 UsernamePasswordAuthenticationFilter 인증 방식 제외
 
         http.headers().frameOptions().disable();
     }

@@ -5,6 +5,7 @@ import com.sparta.board.common.ResponseUtils;
 import com.sparta.board.common.SuccessResponse;
 import com.sparta.board.dto.BoardRequestsDto;
 import com.sparta.board.dto.BoardResponseDto;
+import com.sparta.board.dto.BoardSummaryDto;
 import com.sparta.board.dto.CommentResponseDto;
 import com.sparta.board.entity.Board;
 import com.sparta.board.entity.Comment;
@@ -55,7 +56,15 @@ public class BoardService {
         }
 
         return ResponseUtils.ok(responseDtoList);
+    }
 
+    @Transactional
+    public ApiResponseDto<List<BoardSummaryDto>> getBoardSummary(){
+        List<BoardSummaryDto> boardsSummary = boardRepository.findAllBoardsSummary();
+        for(BoardSummaryDto b : boardsSummary){
+            System.out.println(b.getId());
+        }
+        return ResponseUtils.ok(boardsSummary);
     }
 
     // 게시글 작성
@@ -140,7 +149,5 @@ public class BoardService {
         // 게시글 id 와 사용자 정보 일치한다면, 게시글 수정
         boardRepository.deleteById(id);
         return ResponseUtils.ok(SuccessResponse.of(HttpStatus.OK, "게시글 삭제 성공"));
-
     }
-
 }

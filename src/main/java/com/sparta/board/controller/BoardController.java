@@ -4,6 +4,7 @@ import com.sparta.board.common.ApiResponseDto;
 import com.sparta.board.common.SuccessResponse;
 import com.sparta.board.dto.BoardRequestsDto;
 import com.sparta.board.dto.BoardResponseDto;
+import com.sparta.board.dto.BoardSummaryDto;
 import com.sparta.board.security.UserDetailsImpl;
 import com.sparta.board.service.BoardService;
 import lombok.RequiredArgsConstructor;
@@ -20,8 +21,8 @@ public class BoardController {
 
     // 게시글 전체 목록 조회
     @GetMapping("/api/posts")
-    public ApiResponseDto<List<BoardResponseDto>> getPosts() {
-        return boardService.getPosts();
+    public ApiResponseDto<List<BoardSummaryDto>> getPosts() {
+        return boardService.getBoardSummary();
     }
 
     // 게시글 작성

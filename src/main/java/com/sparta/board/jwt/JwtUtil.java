@@ -22,7 +22,7 @@ import java.util.Date;
 
 @Slf4j
 @Component
-@RequiredArgsConstructor
+@RequiredArgsConstructor //이 어노테이션이 있으면 final이나 @NotNull이 붙은 어노테이션 필드에 의존성 주입을 해준다.
 public class JwtUtil {
 
     private final UserDetailsServiceImpl userDetailsService;
