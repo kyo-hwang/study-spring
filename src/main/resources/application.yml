@@ -1,4 +1,7 @@
 spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
   freemarker:
     cache: false
   profiles:
@@ -27,6 +30,7 @@ spring:
     redis:
       host: localhost
       port: 6379
+  #swagger설정을 위한 것
 
 server:
   port: 8080
@@ -41,3 +45,24 @@ logging:
           descriptor:
             sql:
               BasicBinder: TRACE
+#com.sparta.board.controller
+# Swagger springdoc-ui Configuration
+springdoc:
+  api-docs:
+    path: /v3/api-docs # API 문서 생성 경로
+    groups:
+      enabled: true
+  swagger-ui:
+    path: /swagger-ui.html # Swagger-ui 경로
+    enabled: true
+    groups-order: asc
+    tags-sorter: alpha
+    operations-sorter: alpha
+    display-request-duration: true
+    doc-expansion: none
+  cache:
+    disabled: true
+  override-with-generic-response: false
+  model-and-view-allowed: true
+  default-consumes-media-type: application/json
+  default-produces-media-type: application/json

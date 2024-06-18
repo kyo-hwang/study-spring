@@ -10,16 +10,16 @@ public class BoardSummaryDto {
 
     private Long id;
     private String title;
-    private Long user_id;
-    private String user_name;
+    private Long userId;
+    private String userName;
     private LocalDateTime createdAt;
     private LocalDateTime modifiedAt;
 
-    public BoardSummaryDto(Long id, String title, Long user_id,String user_name, LocalDateTime createdAt, LocalDateTime modifiedAt) {
+    public BoardSummaryDto(Long id, String title, Long userId,String userName, LocalDateTime createdAt, LocalDateTime modifiedAt) {
         this.id = id;
         this.title = title;
-        this.user_id = user_id;
-        this.user_name = user_name;
+        this.userId = userId;
+        this.userName = userName;
         this.createdAt = createdAt;
         this.modifiedAt = modifiedAt;
     }

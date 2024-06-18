@@ -22,7 +22,6 @@ public class JwtAuthFilter extends OncePerRequestFilter {
 
     private final JwtUtil jwtUtil;
 
-
     //jwt 인증
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
@@ -45,7 +44,6 @@ public class JwtAuthFilter extends OncePerRequestFilter {
         }
         // 다음 필터로 넘어간다.
         filterChain.doFilter(request, response);
-
     }
 
     private void setAuthentication(String username) {
