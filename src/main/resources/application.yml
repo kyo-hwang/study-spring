@@ -46,6 +46,7 @@ logging:
             sql:
               BasicBinder: TRACE
 #com.sparta.board.controller
+
 # Swagger springdoc-ui Configuration
 springdoc:
   api-docs:

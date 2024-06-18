@@ -61,6 +61,7 @@ public class UserService {
 
         // 사용자 확인 & 비밀번호 확인
         Optional<User> user = userRepository.findByUsername(username);
+        System.out.println(user.isEmpty()+"!!!!!!!!!!!!!!!!!!!!!!!!!!!비어있는가?");
         if (user.isEmpty() || !passwordEncoder.matches(password, user.get().getPassword())) {
             throw new RestApiException(ErrorType.NOT_MATCHING_INFO);
         }
