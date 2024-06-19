@@ -14,7 +14,7 @@ import java.util.Optional;
 public interface BoardRepository extends JpaRepository<Board, Long> {
     List<Board> findAllByOrderByModifiedAtDesc();
     Optional<Board> findByIdAndUser(Long id, User user);
-    @Query(value="select new com.sparta.board.dto.BoardSummaryDto(board.id, board.title, board.user.id,board.user.username" +
+    @Query(value="select new com.sparta.board.dto.BoardSummaryDto(board.id, board.title, board.user.id,board.user.userEmail" +
             ",board.createdAt, board.modifiedAt) from Board board")
     List<BoardSummaryDto> findAllBoardsSummary();
 

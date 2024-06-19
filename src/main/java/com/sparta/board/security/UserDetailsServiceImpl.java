@@ -18,9 +18,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     //userDatailsService에서 유저에 대한 정보를 가져오고 UserDatais객체 생성
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userRepository.findByUsername(username)
+        User user = userRepository.findByUserEmail(username)
                 .orElseThrow(() -> new UsernameNotFoundException(ErrorType.NOT_FOUND_USER.getMessage()));   // 사용자가 DB 에 없으면 예외처리
 
-        return new UserDetailsImpl(user, user.getUsername());   // 사용자 정보를 UserDetails 로 반환
+        return new UserDetailsImpl(user, user.getUserEmail());   // 사용자 정보를 UserDetails 로 반환
     }
 }

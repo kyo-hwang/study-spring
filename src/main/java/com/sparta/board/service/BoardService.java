@@ -61,9 +61,6 @@ public class BoardService {
     @Transactional
     public ApiResponseDto<List<BoardSummaryDto>> getBoardSummary(){
         List<BoardSummaryDto> boardsSummary = boardRepository.findAllBoardsSummary();
-        for(BoardSummaryDto b : boardsSummary){
-            System.out.println(b.getId());
-        }
         return ResponseUtils.ok(boardsSummary);
     }
 

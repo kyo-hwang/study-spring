@@ -21,7 +21,7 @@ public class CommentResponseDto {
     private CommentResponseDto(Comment entity) {
         this.id = entity.getId();
         this.contents = entity.getContents();
-        this.username = entity.getUser().getUsername();
+        this.username = entity.getUser().getUserEmail();
         this.createdAt = entity.getCreatedAt();
         this.modifiedAt = entity.getModifiedAt();
         this.likeCount = (int) entity.getLikesList().stream().count();

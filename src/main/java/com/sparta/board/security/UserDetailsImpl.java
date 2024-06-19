@@ -15,9 +15,9 @@ public class UserDetailsImpl implements UserDetails {
     private final String username;
 
     // 인증이 완료된 사용자 추가하기
-    public UserDetailsImpl(User user, String username) {
+    public UserDetailsImpl(User user, String userEmail) {
         this.user = user;
-        this.username = username;
+        this.username = userEmail;
     }
 
     public User getUser() {

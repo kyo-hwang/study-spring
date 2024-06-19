@@ -11,7 +11,7 @@ public class BoardSummaryDto {
     private Long id;
     private String title;
     private Long userId;
-    private String userName;
+    private String userEmail;
     private LocalDateTime createdAt;
     private LocalDateTime modifiedAt;
 
@@ -19,7 +19,7 @@ public class BoardSummaryDto {
         this.id = id;
         this.title = title;
         this.userId = userId;
-        this.userName = userName;
+        this.userEmail = userName;
         this.createdAt = createdAt;
         this.modifiedAt = modifiedAt;
     }

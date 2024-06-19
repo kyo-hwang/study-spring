@@ -17,8 +17,8 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, length = 20)
-    private String username;
+    @Column(nullable = false, length = 20,name="user_email")
+    private String userEmail;
 
     @Column(nullable = false)
     private String password;
@@ -28,15 +28,15 @@ public class User {
     private UserRoleEnum role;
 
     @Builder
-    private User(String username, String password, UserRoleEnum role) {
-        this.username = username;
+    private User(String userEmail, String password, UserRoleEnum role) {
+        this.userEmail = userEmail;
         this.password = password;
         this.role = role;
     }
 
-    public static User of(String username, String password, UserRoleEnum role) {
+    public static User of(String userEmail, String password, UserRoleEnum role) {
         return User.builder()
-                .username(username)
+                .userEmail(userEmail)
                 .password(password)
                 .role(role)
                 .build();
